@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2828b8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:;">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
+
+    <!-- اضافه کردن این خط‌ها -->
+
+    <meta name="description" content="فروشگاه کفش امیری - عرضه کننده انواع کفش‌های اورجینال و درجه یک تاناکورا ">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- <link rel="icon" href="" type="image/jpg"> -->
+    
+    <!-- فونت وزیر -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+
+
+    <title>صفحه اصلی|فروشگاه امیری</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- اضافه کردن آیکون سبد خرید -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+
+<!-- سبد خرید شناور -->
+<div class="floating-cart">
+    <button id="cart-button" class="cart-toggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </button>
+</div>
+
+<!-- مدال سبد خرید -->
+<div id="cart-modal" class="cart-modal">
+    <div class="cart-content">
+        <div class="cart-header">
+            <h2><i class="fas fa-shopping-cart"></i> سبد خرید</h2>
+            <span class="close-cart">&times;</span>
+        </div>
+        <div class="cart-body">
+            <div class="cart-items">
+                <!-- محتویات سبد خرید اینجا قرار می‌گیرد -->
+            </div>
+            <div class="cart-summary">
+                <div class="summary-item">
+                    <span>تعداد کل:</span>
+                    <span id="total-items">0</span>
+                </div>
+                <div class="summary-item">
+                    <span>مجموع:</span>
+                    <span id="subtotal">0 تومان</span>
+                </div>
+                <div class="summary-item">
+                    <span>تخفیف:</span>
+                    <span id="discount">0 تومان</span>
+                </div>
+                <div class="summary-item total">
+                    <span>قابل پرداخت:</span>
+                    <span id="total-price">0 تومان</span>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="discount-code">
+                <input type="text" placeholder="کد تخفیف" id="discount-code">
+                <button id="apply-discount">اعمال</button>
+            </div>
+            <button id="checkout-btn" class="checkout-btn">
+                <i class="fas fa-credit-card"></i>
+                <a href="تکمیل.html" class="no-underline">تکمیل خرید</a>
+
+            </button>
+            <button id="clear-cart" class="clear-cart-btn">
+                <i class="fas fa-trash-alt"></i>
+                خالی کردن سبد
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- نوتیفیکیشن -->
+<div id="notification" class="notification"></div>  
+</section>
+    <header>
+        <h1>فروشگاه کفش امیری</h1>
+        <nav>
+            <ul>
+                <li><a href="محصول.html">محصولات</a></li>
+                <li><a href="درباره ما.html">درباره ما</a></li>
+                <li><a href="تماس.html">تماس با ما</a></li>    
+    </header>
+<!-- اسلایدر -->
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide active">
+            <div class="slide-content">
+                <h2>کفش‌های اورجینال بروکس</h2>
+                <p>جدیدترین کالکشن 2025</p>
+                <a href="محصول.html" class="cta-button">مشاهده محصولات</a>
+            </div>
+            <img src="بروکس.jpg" alt="اسلاید۱">
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h2>تخفیف ویژه نایک به مناسبت عید نوروز😍</h2>
+                <p>تا ۳۰٪ تخفیف برای خرید اول</p>
+                <a href="محصول.html" class="cta-button">خرید کنید</a>
+            </div>
+            <img src="25.jpg" alt="اسلاید ۲">
+        </div>
+        <div class="slide">
+            <div class="slide-content">
+                <h2>کالکشن جدید جردن</h2>
+                <p>طراحی منحصر به فرد، کیفیت برتر</p>
+                <a href="محصول.html" class="cta-button">مشاهده کالکشن</a>
+            </div>
+            <img src="جردن.jpg" alt="اسلاید ۳">
+        </div>
+    </div>
+    
+    <!-- دکمه‌های کنترل -->
+    <button class="slider-button prev">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    <button class="slider-button next">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <!-- نشانگر اسلایدها -->
+    <div class="slider-indicators">
+        <button class="indicator active" data-slide="0"></button>
+        <button class="indicator" data-slide="1"></button>
+        <button class="indicator" data-slide="2"></button>
+    </div>
+</div>
+    <div class="container">
+        <h1 class="main-title"> صفحه اصلی وبسایت</h1>
+
+    <main>
+    
+       <!-- ردیف اول -->
+       <section class="products-grid">
+        <!-- محصول 1 - بروکس -->
+        <div class="product-card" data-id="1">
+            <span class="product-badge">پرفروش</span>
+            <div class="product-thumb">
+                <img src="بروکس.jpg" alt="بروکس" loading="lazy">
+                <div class="product-quick-actions">
+                    <span class="brand-name">Brooks</span>
+                    <span class="size-tag">41</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">بروکس پرفشنال رانینگ</h3>
+                <div class="product-price">
+                    <del>4,500,000</del>
+                    <span class="discount">31%</span>
+                    <strong>3,100,000 تومان</strong>
+                </div>
+                <a href="بروکس.html" class="buy-button">مشاهده و خرید</a>
+            </div>
+        </div>
+    
+        <!-- محصول 2 - جردن -->
+        <div class="product-card" data-id="2">
+            <span class="product-badge">جدید</span>
+            <div class="product-thumb">
+                <img src="جردن.jpg" alt="جردن" loading="lazy">
+                <div class="product-quick-actions">
+                    <span class="brand-name">Jordan</span>
+                    <span class="size-tag">40</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">جردن 5</h3>
+                <div class="product-price">
+                    <del>5,500,000</del>
+                    <span class="discount">25%</span>
+                    <strong>4,100,000 تومان</strong>
+                </div>
+                <a href="جردن.html" class="buy-button">مشاهده و خرید</a>
+            </div>
+        </div>
+    
+        <!-- محصول 3 - پوما -->
+        <div class="product-card" data-id="3">
+            <span class="product-badge">تخفیف ویژه</span>
+            <div class="product-thumb">
+                <img src="پوما.jpg" alt="پوما" loading="lazy">
+                <div class="product-quick-actions">
+                    <span class="brand-name">Puma</span>
+                    <span class="size-tag">40</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">پوما کلاسیک</h3>
+                <div class="product-price">
+                    <del>3,500,000</del>
+                    <span class="discount">11%</span>
+                    <strong>3,100,000 تومان</strong>
+                </div>
+                <a href="پوما.html" class="buy-button">مشاهده و خرید</a>
+            </div>
+        </div>
+    
+        <!-- محصول 4 - بالنسیاگا -->
+        <div class="product-card" data-id="4">
+            <div class="product-thumb">
+                <img src="بالن.jpg" alt="بالنسیاگا" loading="lazy">
+                <div class="product-quick-actions">
+                    <span class="brand-name">Balenciaga</span>
+                    <span class="size-tag">41</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">ادیداس بالنسیاگا</h3>
+                <div class="product-price">
+                    <del>3,300,000</del>
+                    <span class="discount">9%</span>
+                    <strong>3,000,000 تومان</strong>
+                </div>
+                <a href="بالن.html" class="buy-button">مشاهده و خرید</a>
+            </div>
+        </div>
+    
+        <!-- محصول 5 - نایک رانینگ -->
+        <div class="product-card" data-id="5">
+            <span class="product-badge">پرطرفدار</span>
+            <div class="product-thumb">
+                <img src="نایک.رانینگ.jpg" alt="نایک رانینگ" loading="lazy">
+                <div class="product-quick-actions">
+                    <span class="brand-name">Nike</span>
+                    <span class="size-tag">44</span>
+                </div>
+            </div>
+            <div class="product-info">
+                <h3 class="product-title">نایک رانینگ</h3>
+                <div class="product-price">
+                    <del>5,000,000</del>
+                    <span class="discount">10%</span>
+                    <strong>4,500,000 تومان</strong>
+                </div>
+                <a href="نایک.رانینگ.html" class="buy-button">مشاهده و خرید</a>
+            </div>
+        </div>
+
+<!-- محصول 6 - ادیداس رانینگ -->
+<div class="product-card" data-id="6">
+    <span class="product-badge">جدید</span>
+    <div class="product-thumb">
+        <img src="ادیداس.رانینگ.jpg" alt="ادیداس رانینگ" loading="lazy">
+        <div class="product-quick-actions">
+            <span class="brand-name">Adidas</span>
+            <span class="size-tag">43</span>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">ادیداس رانینگ</h3>
+        <div class="product-price">
+            <del>5,000,000</del>
+            <span class="discount">12%</span>
+            <strong>4,400,000 تومان</strong>
+        </div>
+        <a href="ادیداس.رانینگ.html" class="buy-button">مشاهده و خرید</a>
+    </div>
+</div>
+
+<!-- محصول 7 - ادیداس استابیل -->
+<div class="product-card" data-id="7">
+    <span class="product-badge">تخفیف ویژه</span>
+    <div class="product-thumb">
+        <img src="استابیل.jpg" alt="ادیداس استابیل" loading="lazy">
+        <div class="product-quick-actions">
+            <span class="brand-name">Adidas</span>
+            <span class="size-tag">39</span>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">ادیداس استابیل</h3>
+        <div class="product-price">
+            <del>4,500,000</del>
+            <span class="discount">16%</span>
+            <strong>3,800,000 تومان</strong>
+        </div>
+        <a href="استابیل.html" class="buy-button">مشاهده و خرید</a>
+    </div>
+</div>
+
+<!-- محصول 8 - ادیداس فارماتون -->
+<div class="product-card" data-id="8">
+    <div class="product-thumb">
+        <img src="فار.jpg" alt="ادیداس فارماتون" loading="lazy">
+        <div class="product-quick-actions">
+            <span class="brand-name">Adidas</span>
+            <span class="size-tag">41</span>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">ادیداس فارماتون</h3>
+        <div class="product-price">
+            <del>4,500,000</del>
+            <span class="discount">11%</span>
+            <strong>4,000,000 تومان</strong>
+        </div>
+        <a href="فار.html" class="buy-button">مشاهده و خرید</a>
+    </div>
+</div>
+
+<!-- محصول 9 - ریبوک -->
+<div class="product-card" data-id="9">
+    <span class="product-badge">پرفروش</span>
+    <div class="product-thumb">
+        <img src="ریبوک.jpg" alt="ریبوک کلاسیک" loading="lazy">
+        <div class="product-quick-actions">
+            <span class="brand-name">Reebok</span>
+            <span class="size-tag">42</span>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">ریبوک کلاسیک</h3>
+        <div class="product-price">
+            <del>4,000,000</del>
+            <span class="discount">25%</span>
+            <strong>3,000,000 تومان</strong>
+        </div>
+        <a href="ریبوک.html" class="buy-button">مشاهده و خرید</a>
+    </div>
+</div>
+
+<!-- محصول 10 - نایک ایرفورس -->
+<div class="product-card" data-id="10">
+    <span class="product-badge">محبوب</span>
+    <div class="product-thumb">
+        <img src="نایک.jpg" alt="نایک ایرفورس" loading="lazy">
+        <div class="product-quick-actions">
+            <span class="brand-name">Nike</span>
+            <span class="size-tag">43</span>
+        </div>
+    </div>
+    <div class="product-info">
+        <h3 class="product-title">نایک ایرفورس</h3>
+        <div class="product-price">
+            <del>4,000,000</del>
+            <span class="discount">13%</span>
+            <strong>3,500,000 تومان</strong>
+        </div>
+        <a href="نایک.html" class="buy-button">مشاهده و خرید</a>
+    </div>
+</div>
+
+
+</section>
+</main>
+
+    <!-- فوتر مدرن -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <!-- بخش اصلی -->
+        <div class="footer-main">
+            <!-- اطلاعات فروشگاه -->
+            <div class="footer-section store-info">
+                <h3>فروشگاه کفش امیری</h3>
+                <p class="store-description">
+                    عرضه کننده انواع کفش‌های اورجینال با ضمانت اصالت کالا
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>09900859556</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>wwwamirimohammad942@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>کرمانشاه، میدان آزادی، پاساژ پرویز، طبقه دوم</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- لینک‌های سریع -->
+            <div class="footer-section quick-links">
+                <h3>دسترسی سریع</h3>
+                <ul>
+                    <li><a href="index.html">صفحه اصلی</a></li>
+                    <li><a href="محصول.html">محصولات</a></li>
+                    <li><a href="درباره ما.html">درباره ما</a></li>
+                    <li><a href="تماس.html">تماس با ما</a></li>
+                    <li><a href="/faq">سوالات متداول</a></li>
+                </ul>
+            </div>
+
+            <!-- شبکه‌های اجتماعی -->
+            <div class="footer-section social-media">
+                <h3>ما را دنبال کنید</h3>
+                <h3>خرید از طریق واتساپ و تلگرام</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/mohamad.amiri_19" class="social-link instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://t.me/MMDW_2" class="social-link telegram">
+                        <i class="fab fa-telegram"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://wa.me/09900859556" class="social-link whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- خبرنامه -->
+            <div class="footer-section newsletter">
+                <h3>عضویت در خبرنامه</h3>
+                <p>برای اطلاع از آخرین تخفیف‌ها و محصولات جدید، در خبرنامه ما عضو شوید.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="ایمیل خود را وارد کنید" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- نقشه -->
+        <div class="footer-map">
+            <h3>موقعیت فروشگاه</h3>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1959.2022872294676!2d47.09208650600136!3d34.3257232792732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ffaed1a9edd1155%3A0x7023198547f18106!2z2qnZhNin2YbYqtix24wg2LTZh9uM2KfYrw!5e0!3m2!1sfa!2s!4v1740300665744!5m2!1sfa!2s"
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+</footer>
+<script src="main.js"></script>
+<script>
+    window.onload = function() {
+        if (!sessionStorage.getItem('visited')) {
+            alert('کاربر عزیز به وبسایت فروشگاهی امیری خوش آمدید');
+            sessionStorage.setItem('visited', 'true');
+        }
+    }
+</script>
+</body>
+</html>

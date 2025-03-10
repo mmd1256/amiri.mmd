@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>درگاه پرداخت هوشمند</title>
+    
+    <!-- فونت‌ها و آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- کتابخانه‌های مورد نیاز -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <!-- استایل‌های سفارشی -->
+    <link rel="stylesheet" href="تکمیل.css">
+</head>
+<body>
+    <div class="smart-payment">
+        <!-- هدر هوشمند -->
+        <header class="smart-header">
+            <div class="merchant-details">
+                <img src="store-logo.png" alt="لوگو فروشگاه" class="merchant-logo">
+                <div class="merchant-info">
+                    <h2 class="merchant-name">فروشگاه دیجیتال</h2>
+                    <div class="transaction-info">
+                        <span class="order-id">شماره سفارش: #123456</span>
+                        <span class="timer">
+                            <i class="fas fa-clock"></i>
+                            زمان باقیمانده: <span id="countdown">10:00</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="amount-display">
+                <span class="amount-label">مبلغ قابل پرداخت</span>
+                <span class="amount-value">2,500,000 تومان</span>
+            </div>
+        </header>
+
+        <!-- کارت هوشمند -->
+        <div class="smart-card">
+            <div class="card-wrapper">
+                <div class="card">
+                    <!-- نمای جلوی کارت -->
+                    <div class="card-front">
+                        <div class="card-type">
+                            <div class="chip">
+                                <div class="chip-line"></div>
+                                <div class="chip-line"></div>
+                                <div class="chip-line"></div>
+                                <div class="chip-line"></div>
+                                <div class="chip-main"></div>
+                            </div>
+                            <div class="card-brand" id="cardBrand"></div>
+                        </div>
+                        <div class="card-number-wrapper">
+                            <div class="card-number-block">
+                                <span id="cardNumber1">####</span>
+                            </div>
+                            <div class="card-number-block">
+                                <span id="cardNumber2">####</span>
+                            </div>
+                            <div class="card-number-block">
+                                <span id="cardNumber3">####</span>
+                            </div>
+                            <div class="card-number-block">
+                                <span id="cardNumber4">####</span>
+                            </div>
+                        </div>
+                        <div class="card-details">
+                            <div class="card-holder">
+                                <label>دارنده کارت</label>
+                                <div id="cardHolderPreview">نام و نام خانوادگی</div>
+                            </div>
+                            <div class="card-expires">
+                                <label>تاریخ انقضا</label>
+                                <div id="cardExpiryPreview">MM/YY</div>
+                            </div>
+                        </div>
+                        <div class="bank-info" id="bankInfo">
+                            <img src="bank-logo.png" alt="لوگو بانک" id="bankLogo">
+                            <span id="bankName">بانک</span>
+                        </div>
+                    </div>
+                    
+                    <!-- نمای پشت کارت -->
+                    <div class="card-back">
+                        <div class="magnetic-strip"></div>
+                        <div class="signature-panel">
+                            <div class="cvv-wrapper">
+                                <label>CVV2</label>
+                                <div class="cvv-number" id="cvvPreview">***</div>
+                            </div>
+                        </div>
+                        <div class="card-networks">
+                            <img src="shetab.png" alt="شتاب" class="network-logo">
+                            <img src="shaparak.png" alt="شاپرک" class="network-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- فرم هوشمند -->
+        <form id="smartPaymentForm" class="smart-form">
+            <!-- نوار پیشرفت -->
+            <div class="form-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-steps">
+                    <div class="step active">
+                        <i class="fas fa-credit-card"></i>
+                        <span>شماره کارت</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-user"></i>
+                        <span>اطلاعات دارنده</span>
+                    </div>
+                    <div class="step">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>تایید نهایی</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بخش‌های فرم -->
+            <div class="form-sections">
+                <!-- بخش شماره کارت -->
+                <section class="form-section active" id="cardNumberSection">
+                    <div class="input-group card-number">
+                        <label>شماره کارت</label>
+                        <div class="segmented-input">
+                            <input type="text" maxlength="4" class="segment" id="seg1" placeholder="####">
+                            <input type="text" maxlength="4" class="segment" id="seg2" placeholder="####">
+                            <input type="text" maxlength="4" class="segment" id="seg3" placeholder="####">
+                            <input type="text" maxlength="4" class="segment" id="seg4" placeholder="####">
+                        </div>
+                        <div class="input-hint">
+                            <i class="fas fa-info-circle"></i>
+                            <span>شماره 16 رقمی درج شده روی کارت را وارد کنید</span>
+                        </div>
+                    </div>
+                    <button type="button" class="next-button" disabled>
+                        <span>مرحله بعد</span>
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                </section>
+
+                <!-- بخش اطلاعات دارنده -->
+                <section class="form-section" id="cardHolderSection">
+                    <div class="input-group">
+                        <label>نام و نام خانوادگی دارنده کارت</label>
+                        <input type="text" id="cardHolder" placeholder="مثال: محمد امیری">
+                        <div class="input-hint">
+                            <i class="fas fa-info-circle"></i>
+                            <span>نام را دقیقاً مطابق با کارت وارد کنید</span>
+                        </div>
+                    </div>
+                    <div class="input-row">
+ <div class="input-group expiry">
+    <label>تاریخ انقضا</label>
+    <div class="expiry-wrapper">
+        <div class="expiry-inputs">
+            <input type="text" 
+                   maxlength="2" 
+                   placeholder="ماه" 
+                   id="month" 
+                   autocomplete="off"
+                   inputmode="numeric">
+            <span class="divider">/</span>
+            <input type="text" 
+                   maxlength="2" 
+                   placeholder="سال" 
+                   id="year" 
+                   autocomplete="off"
+                   inputmode="numeric">
+        </div>
+        <div class="expiry-hint">
+            <i class="fas fa-info-circle"></i>
+            <span>تاریخ را به صورت دو رقمی وارد کنید (مثال: 05/03)</span>
+        </div>
+        <div class="expiry-error"></div>
+    </div>
+</div>
+
+
+                        <div class="input-group cvv">
+                            <label>CVV2</label>
+                            <div class="cvv-input">
+                                <input type="password" maxlength="3" id="cvv" placeholder="***">
+                                <button type="button" class="toggle-cvv">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="input-hint">
+                                <i class="fas fa-info-circle"></i>
+                                <span>کد 3 یا 4 رقمی پشت کارت</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="back-button">
+                            <i class="fas fa-arrow-right"></i>
+                            <span>مرحله قبل</span>
+                        </button>
+                        <button type="button" class="next-button" disabled>
+                            <span>مرحله بعد</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- بخش تایید نهایی -->
+           <section class="form-section" id="confirmationSection">
+    <div class="confirmation-details">
+        <h3>تایید اطلاعات پرداخت</h3>
+        <div class="detail-row">
+            <span>شماره کارت:</span>
+            <strong id="confirmCardNumber"></strong>
+        </div>
+        <div class="detail-row">
+            <span>نام دارنده کارت:</span>
+            <strong id="confirmCardHolder"></strong>
+        </div>
+        <div class="detail-row">
+            <span>بانک صادرکننده:</span>
+            <strong class="bank-info"></strong>
+        </div>
+        <div class="detail-row">
+            <span>مبلغ قابل پرداخت:</span>
+            <strong class="amount">2,500,000 تومان</strong>
+        </div>
+    </div>
+    <div class="button-group">
+        <button type="button" class="back-button">
+            <i class="fas fa-arrow-right"></i>
+            <span>ویرایش اطلاعات</span>
+        </button>
+        <button type="submit" class="submit-button" disabled>
+            <span>پرداخت امن</span>
+            <i class="fas fa-lock"></i>
+        </button>
+    </div>
+</section>
+
+            </div>
+        </form>
+
+        <!-- فوتر هوشمند -->
+        <footer class="smart-footer">
+            <div class="security-badges">
+                <div class="badge">
+                    <i class="fas fa-lock"></i>
+                    <span>پرداخت امن</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>رمزنگاری SSL</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-headset"></i>
+                    <span>پشتیبانی 24/7</span>
+                </div>
+            </div>
+            <div class="support-info">
+                <span>شماره پشتیبانی:</span>
+                <a href="tel:+982100000000" class="support-phone">
+                    <i class="fas fa-phone"></i>
+                    021-00000000
+                </a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- اسکریپت‌های سفارشی -->
+    <script src="تکمیل.js"></script>
+</body>
+</html>

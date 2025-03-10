@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جزئیات محصول | فروشگاه آنلاین</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="پوما.css">
+</head>
+<body>
+    <!-- سبد خرید شناور -->
+    <div class="floating-cart">
+        <button id="cart-button" class="cart-toggle">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </button>
+    </div>
+
+    <!-- مدال سبد خرید -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2><i class="fas fa-shopping-cart"></i> سبد خرید</h2>
+                <button class="close-cart">&times;</button>
+            </div>
+            <div class="cart-body">
+                <div class="cart-items">
+                    <!-- محتوای سبد خرید به صورت پویا اضافه می‌شود -->
+                </div>
+                <div class="cart-summary">
+                    <div class="summary-item">
+                        <span>تعداد کل:</span>
+                        <span id="total-items">0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>مجموع:</span>
+                        <span id="subtotal">0 تومان</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>تخفیف:</span>
+                        <span id="discount">0 تومان</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>قابل پرداخت:</span>
+                        <span id="total-price">0 تومان</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="discount-code">
+                    <input type="text" id="discount-code" placeholder="کد تخفیف">
+                    <button id="apply-discount">اعمال</button>
+                </div>
+                <button id="checkout-btn" class="checkout-btn">
+                    <i class="fas fa-credit-card"></i>
+                    <a href="تکمیل.html" class="no-underline">تکمیل خرید</a>
+                </button>
+                <button id="clear-cart" class="clear-cart-btn">
+                    <i class="fas fa-trash-alt"></i>
+                    خالی کردن سبد
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- محتوای اصلی -->
+    <main class="container">
+        <!-- نوار مسیر -->
+        <nav class="product-nav">
+            <div class="breadcrumb">
+                <a href="index.html">صفحه اصلی</a>
+                <i class="fas fa-chevron-left"></i>
+                <a href="محصول.html">محصولات</a>
+                <i class="fas fa-chevron-left"></i>
+                <span>کفش پوما کلاسیک</span>
+            </div>
+        </nav>
+
+        <!-- کارت محصول -->
+        <div class="product-card">
+            <div class="product-grid">
+             <!-- گالری محصول -->
+<div class="product-gallery">
+    <div class="main-image-container" id="mainImageContainer">
+        <img src="12.jpg" alt="کفش نایک ایر جردن" class="main-image" id="mainImage">
+        <div class="image-overlay">
+            <button class="zoom-button">
+                <i class="fas fa-search-plus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="thumbnails">
+        <img src="13.jpg" alt="نمای جلو" class="thumbnail active" onclick="changeImage(this)">
+        <img src="11.jpg" alt="نمای پشت" class="thumbnail" onclick="changeImage(this)">
+        <img src="10.jpg" alt="نمای کنار" class="thumbnail" onclick="changeImage(this)">
+        <img src="پوما.jpg" alt="نمای بالا" class="thumbnail" onclick="changeImage(this)">
+    </div>
+</div>
+
+<!-- مدال بزرگنمایی -->
+<div class="zoom-modal" id="zoomModal">
+    <div class="zoom-content">
+        <span class="close-zoom">&times;</span>
+        <img id="zoomImage" src="" alt="">
+    </div>
+</div>
+
+
+                <!-- اطلاعات محصول -->
+                <div class="product-info">
+                    <div class="product-header">
+                        <span class="product-category">کفش ورزشی</span>
+                        <h1 class="product-title">کفش پوما کلاسیک</h1>
+                        <div class="price-section">
+                            <span class="current-price">4,200,000 تومان</span>
+                            <span class="old-price">5,500,000 تومان</span>
+                            <span class="discount-badge">20% تخفیف</span>
+                        </div>
+                    </div>
+
+                    <p class="product-description">
+                        کفش  پوما کلاسیک  با طراحی منحصر به فرد و کیفیت بالا، مناسب برای ورزش و استفاده روزمره. 
+                        این کفش دارای تکنولوژی پیشرفته برای راحتی بیشتر پا می‌باشد.
+                    </p>
+
+                    <div class="options-section">
+                        <h3>انتخاب سایز</h3>
+                        <div class="size-options">
+                            <button class="size-option">40</button>
+                            <button class="size-option">41</button>
+                            <button class="size-option">42</button>
+                            <button class="size-option">43</button>
+                            <button class="size-option">44</button>
+                        </div>
+
+                        <div class="quantity-selector">
+                            <span>تعداد:</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn decrease">-</button>
+                                <span class="quantity-display">1</span>
+                                <button class="quantity-btn increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>گارانتی اصالت و سلامت فیزیکی کالا</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-truck"></i>
+                            <span>ارسال سریع به سراسر کشور</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-undo"></i>
+                            <span>7 روز ضمانت بازگشت کالا</span>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            افزودن به سبد خرید
+                        </button>
+                    </div>
+
+                    <div class="share-buttons">
+                        <button class="share-button" data-platform="telegram">
+                            <i class="fab fa-telegram"></i>
+                            تلگرام
+                        </button>
+                        <button class="share-button" data-platform="whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            واتساپ
+                        </button>
+                        <button class="share-button" data-platform="twitter">
+                            <i class="fab fa-twitter"></i>
+                            توییتر
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- مدال بزرگنمایی تصویر -->
+    <div id="zoom-modal" class="zoom-modal">
+        <div class="zoom-content">
+            <button class="close-zoom">&times;</button>
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <!-- نوتیفیکیشن -->
+    <div id="notification" class="notification"></div>
+
+    <!-- اسکریپت‌ها -->
+    <script src="پوما.js"></script>
+</body>
+</html>
